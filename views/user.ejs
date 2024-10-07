@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon App</title>
+  </head>
+  <body>
+    <h1>Welcome <%=user.username%> to our Pokemon App</h1>
+    <br />
+    <a href="/">Go back to the home page</a>
+    <br />
+    <!-- This takes clients to see the entire Pokemon collection -->
+    <a href="/allMons">See all the Pokemon in the database</a>
+    <br />
+    <ul>
+      <%=user.username%>'s Favorite Pokemon: <% favoritePokemon.forEach(
+      (pokemon) => { %>
+      <li>
+        <a href="/oneMon/<%=pokemon.Name%>"><%= pokemon.Name %></a>
+      </li>
+      <% }) %>
+      <% if (favoritePokemon.length === 0) { %>
+        <p>None yet! Favorite some Pokemons and come back here to see them.</p>
+        <% } %>
+    </ul>
+
+    <a href="/logout">Log out of the session</a>
+  </body>
+</html>
